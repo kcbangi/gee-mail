@@ -10,10 +10,7 @@
 			// ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
 			// We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 			window.onload = function() {
-
 				console.log(window.geemails);
-				console.log(window.getNewMessage);
-
 				let tbl = document.getElementById('tbl');
 				let email = 0;
 
@@ -26,16 +23,19 @@
 					document.getElementById('counter').innerHTML = `Inbox: ${email}`;
 					
 					let rows = tbl.insertRow(1);
-					let subjectCell = rows.insertCell(0);
-					subjectCell.innerHTML = msg.subject;
-					let senderCell = rows.insertCell(1);
+					let senderCell = rows.insertCell(0);
 					senderCell.innerHTML = msg.sender;
+					let subjectCell = rows.insertCell(1);
+					subjectCell.innerHTML = msg.subject;
 					let dateCell = rows.insertCell(2);
 					dateCell.innerHTML = msg.date;
 					let body = msg.body;
+
+					rows.onclick = function() {
+						document.getElementById('email-info').innerHTML = `${msg.date}<br>${msg.sender}<br>${msg.subject}`;
+						document.getElementById('email-content').innerHTML = `${body}`;
+					};
 				};
-
-
 			};
 		</script>
 	</head>
