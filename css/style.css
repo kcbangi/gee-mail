@@ -1,0 +1,86 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1456298964505-ef9e1a638209?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2767&q=80");
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+header {
+    background:#ffffff;
+    text-align: center;
+    border: 1px solid #999999;
+    display: inline-flex;
+    padding: 5px 50px;
+    width: 100%;
+    text-align: center;
+}
+h1 {
+    font-size: 50px;
+    margin-right: 50px;
+    color: #333333;
+}
+input {
+    width: 700px;
+    font-size: 15px;
+}
+main {
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+}
+ul {
+    background: #ffffff;
+    /* border: 1px solid #999999; */
+    padding: 30px;
+    height: 200px;
+    width: 60px;
+    margin: 5px;
+}
+li {
+    margin: 25px auto;
+    font-size: 18px;
+}
+a {
+    text-decoration: none;
+    color: #333333;
+}
+th {
+    font-weight: bold;
+}
+td {
+    padding: 7px;
+}
+#nav {
+    
+    float: left;
+    border: 1px solid #999999;
+    padding: 50px;
+}
+#inbox {
+    font-weight: bold;  
+}
+#emails {
+    background: #ffffff;
+    /* border: 1px solid #999999; */
+    padding:20px;
+    overflow: scroll;
+    width: 400px;
+    height: 600px;
+    font-size: 14px;
+    margin: 5px;
+}
+#message-info {
+    font-weight: bold;
+    margin: 20px auto;
+}
+#message {
+    background: #ffffff;
+    border: 1px solid #999999;
+    overflow: scroll;
+    padding: 10px;
+    margin: 5px;
+    width: 900px;
+    height: 100%;
+}
