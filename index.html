@@ -10,10 +10,7 @@
 			// ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
 			// We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 			window.onload = function() {
-
 				console.log(window.geemails);
-				console.log(window.getNewMessage);
-
 				let tbl = document.getElementById('tbl');
 				let email = 0;
 
@@ -23,19 +20,29 @@
 
 				function loadEmail(msg) {
 					email++;
-					document.getElementById('counter').innerHTML = `Inbox: ${email}`;
+					// show number of messages
+					document.getElementById('inbox').innerHTML = `Inbox ${email}`;
 					
+					// create row and cell for the email
 					let rows = tbl.insertRow(1);
-					let subjectCell = rows.insertCell(0);
-					subjectCell.innerHTML = msg.subject;
-					let senderCell = rows.insertCell(1);
+					let senderCell = rows.insertCell(0);
 					senderCell.innerHTML = msg.sender;
+					let subjectCell = rows.insertCell(1);
+					subjectCell.innerHTML = msg.subject;
 					let dateCell = rows.insertCell(2);
 					dateCell.innerHTML = msg.date;
 					let body = msg.body;
+
+					// print info and message
+					rows.onclick = function() {
+						document.getElementById('email-info').innerHTML = `${msg.date}<br>${msg.sender}<br>${msg.subject}`;
+						document.getElementById('email-content').innerHTML = `${body}`;
+					}
 				};
-
-
+				// render new message
+				setInterval(function() {
+					loadEmail(getNewMessage());
+				}, 8000)
 			};
 		</script>
 	</head>
@@ -47,9 +54,8 @@
 		</header>
 		<div>
 			<div class="nav">
-				<span id="counter"></span>
 				<ul>
-					<li><a href="#">Inbox</a></li>
+					<li id="inbox"><a href="#">Inbox</a></li>
 					<li><a href="#">Junk</a></li>
 					<li><a href="#">Deleted</a></li>
 					<li><a href="#">Sent</a></li>
