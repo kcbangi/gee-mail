@@ -20,8 +20,10 @@
 
 				function loadEmail(msg) {
 					email++;
-					document.getElementById('counter').innerHTML = `Inbox: ${email}`;
+					// show number of messages
+					document.getElementById('inbox').innerHTML = `Inbox ${email}`;
 					
+					// create row and cell for the email
 					let rows = tbl.insertRow(1);
 					let senderCell = rows.insertCell(0);
 					senderCell.innerHTML = msg.sender;
@@ -31,11 +33,16 @@
 					dateCell.innerHTML = msg.date;
 					let body = msg.body;
 
+					// print info and message
 					rows.onclick = function() {
 						document.getElementById('email-info').innerHTML = `${msg.date}<br>${msg.sender}<br>${msg.subject}`;
 						document.getElementById('email-content').innerHTML = `${body}`;
-					};
+					}
 				};
+				// render new message
+				setInterval(function() {
+					loadEmail(getNewMessage());
+				}, 8000)
 			};
 		</script>
 	</head>
@@ -47,9 +54,8 @@
 		</header>
 		<div>
 			<div class="nav">
-				<span id="counter"></span>
 				<ul>
-					<li><a href="#">Inbox</a></li>
+					<li id="inbox"><a href="#">Inbox</a></li>
 					<li><a href="#">Junk</a></li>
 					<li><a href="#">Deleted</a></li>
 					<li><a href="#">Sent</a></li>
