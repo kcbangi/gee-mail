@@ -6,15 +6,12 @@ body {
     height: auto;
     overflow: hidden;
 }
-
 header {
     background:#ffffff;
-    text-align: center;
     border: 1px solid #999999;
     display: inline-flex;
     padding: 5px 50px;
     width: 100%;
-    text-align: center;
 }
 h1 {
     font-size: 50px;
@@ -47,10 +44,14 @@ a {
     color: #333333;
 }
 th {
+    font-size: 16px;
     font-weight: bold;
 }
 td {
     padding: 7px;
+}
+b {
+    font-weight: bold;
 }
 #nav {
     
@@ -72,8 +73,9 @@ td {
     margin: 5px;
 }
 #message-info {
-    font-weight: bold;
-    margin: 20px auto;
+    /* font-weight: bold; */
+    /* margin: 20px auto; */
+    display: none;
 }
 #message {
     background: #ffffff;
@@ -83,4 +85,15 @@ td {
     margin: 5px;
     width: 900px;
     height: 100%;
+}
+#user {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+#close {
+    float: right;
+}
+#user:hover, #close:hover, a:hover, li:hover, tr:hover {
+    cursor: pointer;
+    background-color: #f1f1f1;
 }

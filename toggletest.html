@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Toogle in javascript</title>
+        <style>
+        #myDiv {
+            width: 100%;
+            padding:50px 0;
+            text-align: center;
+            background: lightblue;
+            margin-top: 20px;
+            font-size: 3em;
+        }
+        button {
+            padding: 10px;
+            font-size:20px;
+        }
+        </style>
+
+    </head>
+    <body>
+    <button onclick="myFunction()">Hide and Show</button>
+    <div id="myDiv">
+        <h2> Hide and show toggle content</h2>
+    </div>
+
+    <script>
+        function myFunction() {
+            var toggle = document.getElementById("myDiv");
+            if(toggle.style.display === "none") {
+                toggle.style.display = "block";
+            }else {
+                toggle.style.display = "none";
+            }
+        }
+        </script>
+    </body>
+</html>
