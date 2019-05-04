@@ -19,8 +19,8 @@
                 }); 
 
                 function loadEmail(msg) {
-                    email++;
                     // show number of messages
+                    email++;
                     document.getElementById('inbox').innerHTML = `Inbox ${email}`;
                     
                     // create row and cell for the email
@@ -35,36 +35,36 @@
 
                     // print-content and message
                     rows.onclick = function() {
-                        let toggle = document.getElementById('message-content').innerHTML = `<b>Date:</b> ${msg.date}<br><br><b>From:</b> ${msg.sender}<br><br><b>Subject:</b> ${msg.subject}<br><br>${body}</strong>`;
-                        if(toggle.style.display === "none") {
-                            toggle.style.display = "block";
-                        }else {
-                            toggle.style.display = "none";
-                        }
+                        document.getElementById('message-content').innerHTML = `<b>Date:</b> ${msg.date}<br><br><b>From:</b> ${msg.sender}<br><br><b>Subject:</b> ${msg.subject}<br><br>${body}</strong>`;  
                     }
-                    function myFunction() {
-                        let toggle1 = document.getElementById('close');
-                        if(toggle1.style.display === 'block') {
-                            toggle1.style.display = 'none';
-                        }else {
-                            toggle1.style.display = 'none';
+                    
+                    // hide/show messages
+                    let hideStuff = document.querySelector('#message-content');
+                    rows.addEventListener('click', function() {
+                        if(hideStuff.style.display == 'block'){
+                            hideStuff.style.display = 'none'
+                        }else{
+                            hideStuff.style.display = 'block'
                         }
-                    }
-                
+                        }
+                    );  
                 };
-                // render new message
+                
+                // render random new message
                 setInterval(function() {
                     loadEmail(getNewMessage());
-                }, 9000);
+                }, 10000);
             };
         </script>
     </head>
 
     <body>
         <header>
-            <div id="user"><img src="https://img.icons8.com/material/30/000000/user.png"></div>
             <h1>GeeMail</h1>
-            <input type="text" placeholder="Search mail..">
+            <input id="searchBar" type="text" placeholder="Search mail..">
+            <img src="https://img.icons8.com/ios/50/000000/search.png">
+            <div id="user"><img src="https://img.icons8.com/pastel-glyph/50/000000/person-male.png"></div>
+            <img src="https://img.icons8.com/ios-glyphs/50/000000/menu.png">
         </header>
         <main>
             <ul>
@@ -91,7 +91,6 @@
                 </table>
             </div>
             <div id="message">
-                <img id="close" src="https://img.icons8.com/ios-glyphs/26/000000/multiply.png" onclick="myFunction()">
                 <div id="message-content"></div>
             </div>
         </main>

@@ -10,8 +10,8 @@ window.onload = function() {
     }); 
 
     function loadEmail(msg) {
-        email++;
         // show number of messages
+        email++;
         document.getElementById('inbox').innerHTML = `Inbox ${email}`;
         
         // create row and cell for the email
@@ -24,14 +24,23 @@ window.onload = function() {
         dateCell.innerHTML = msg.date;
         let body = msg.body;
 
-        // print info and message
+        // print-content and message
         rows.onclick = function() {
-            document.getElementById('message-info').innerHTML = `Date: ${msg.date}<br><br>From: ${msg.sender}<br><br>Subject: ${msg.subject}`;
-            document.getElementById('message-content').innerHTML = `${body}`;
+            document.getElementById('message-content').innerHTML = `<b>Date:</b> ${msg.date}<br><br><b>From:</b> ${msg.sender}<br><br><b>Subject:</b> ${msg.subject}<br><br>${body}</strong>`;  
         }
+        // hide/show messages  
+        let hideStuff = document.querySelector('#message-content');
+        rows.addEventListener('click', function() {
+            if(hideStuff.style.display == 'block'){
+                hideStuff.style.display = 'none'
+            }else{
+                hideStuff.style.display = 'block'
+            }
+            }
+        );  
     };
-    // render new message
+    // render new random message
     setInterval(function() {
         loadEmail(getNewMessage());
-    }, 9000);
+    }, 10000);
 };

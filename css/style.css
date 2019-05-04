@@ -53,6 +53,9 @@ td {
 b {
     font-weight: bold;
 }
+img {
+    margin: auto 10px;
+}
 #nav {
     
     float: left;
@@ -87,13 +90,15 @@ b {
     height: 100%;
 }
 #user {
-    margin-top: 10px;
     margin-right: 10px;
 }
 #close {
     float: right;
 }
-#user:hover, #close:hover, a:hover, li:hover, tr:hover {
+img, #close:hover, a:hover, li:hover {
     cursor: pointer;
-    background-color: #f1f1f1;
+}
+tbody tr:hover {
+    cursor: pointer;
+    border: 2px ridge #666666;
 }
